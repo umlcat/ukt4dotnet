@@ -1,3 +1,3 @@
 readme.txt
 ==========
-UMLCat Libraries for DotNet framework.
+UMLCat OPEN Source Libraries for DotNet framework.
