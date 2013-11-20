@@ -1,0 +1,140 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using ukt4dotnet.shared.utilities;
+using ukt4dotnet.shared.utilities.Collections;
+using ukt4dotnet.shared.objects;
+
+namespace ukt4dotnet.shared.mynamespace
+{
+    /// <summary>
+    /// A template for entity classes.
+    /// </summary>
+    public class <%entityname%>Class : ObjectClass
+    {
+        #region "fields"
+            // ...
+            
+            // ...
+        #endregion "fields"
+
+        #region "properties"
+            // ...
+            
+            // ...
+        #endregion "properties"
+
+        #region "support"
+            private bool F_<%entityname%>Class_IsReady;
+        
+            public <%entityname%>Class(): base()
+            {
+                // --> clear status
+                F_<%entityname%>Class_IsReady = false;
+                
+                // --> clear fields
+                // ...
+            } // <%entityname%>Class()        
+      
+            public override bool IsReady()
+            {
+                bool Result = F_<%entityname%>Class_IsReady;
+                return Result;
+            } // bool IsReady(...)
+
+        #endregion "support"
+
+        #region "constructors"
+            // ...
+
+            public override Int64 Create()
+            {
+                Int64 Result = 0;
+
+                // --> execute inherited constructor
+                Result = base.Create();
+
+                // --> allocate fields
+                if (Result == 0)
+                {
+                    // ...
+                } // if (Result == 0)
+
+                // --> update status
+                F_<%entityname%>Class_IsReady = true;
+
+                return Result;
+            } // public override Int64 Create(...)
+
+            public override Int64 Destroy()
+            {
+                Int64 Result = 0;
+
+                // --> deallocate fields
+                if (Result == 0)
+                {
+                    // ...
+                } // if (Result == 0)
+
+                // --> execute inherited destructor
+                Result = base.Destroy();
+
+                // --> update status
+                F_<%entityname%>Class_IsReady = false;
+
+                return Result;
+            } // public override Int64 Destroy(...)
+
+            // ...
+        #endregion "constructors"
+
+        #region "methods"
+			// ...
+			
+            // ...
+        #endregion "methods"
+        
+        #region "static"
+			// ...
+			
+            /// <summary>
+            /// Construye un nuevo objeto de la clase <code><%entityname%>Class</code>,
+            /// que desciende de <code>ObjectClass</code>,
+            /// y ejecuta el inicializador virtual, por-de-facto.
+            /// Para ejecutar otro inicializador,
+            /// se tiene que realizar estas operaciones como pasos separados.
+            /// </summary>
+            /// <returns>Nuevo objeto</returns>
+            new public static <%entityname%>Class Factory()
+            {
+                <%entityname%>Class Result = new <%entityname%>Class();
+                Result.Create();
+
+                return Result;
+            } // static <%entityname%>Class Factory(...)
+
+            /// <summary>
+            /// Desecha objeto de la clase <code><%entityname%>Class</code>,
+            /// que desciende de <code>ObjectClass</code>,
+            /// ejecutando el metodo finalizador, por-de-facto.
+            /// Para ejecutar otro finalizador,
+            /// se tiene que realizar estas operaciones como pasos separados.
+            /// </summary>
+            /// <param name="AObject">Objeto que se desechara de memoria</param>
+            public static void Disposer(ref <%entityname%>Class AObject)
+            {
+                if (AObject != null)
+                {
+                    AObject.Destroy();
+                    AObject = null;
+                } // if (AObject != null)
+            } // public static void Disposer(...)
+			
+            // ...
+        #endregion "static"
+
+        // ...
+
+    } // class <%entityname%>Class
+
+} // namespace
